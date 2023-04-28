@@ -1,3 +1,8 @@
+/* Author: Homero
+Device: Arduino 33 BLE Sense
+Compatible with: Sense app for Android
+*/
+
 #include <Arduino.h>
 #include <ArduinoBLE.h>
 #include <Arduino_HS300x.h>
