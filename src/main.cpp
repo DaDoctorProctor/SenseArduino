@@ -86,7 +86,7 @@ void bleController(){
         int b2 = humidity;
         int b3 = (humidity - b2)*100;
 
-        /* +DEBUG: Test the sensor output values */
+        /* DEBUG: Test the sensor output values */
         //Serial.println(String(temperature) + " " + String(humidity));
 
         /* Assemble the data for the payload to be sent.*/
