@@ -24,7 +24,6 @@ float old_hum = 0;
 
 void setup() {
   Serial.begin(115200);
-  //while (!Serial);
   if (!HS300x.begin()) {
     Serial.println("Failed to initialize humidity temperature sensor!");
     while (1);
@@ -92,8 +91,6 @@ void bleController(){
 
         /* Assemble the data for the payload to be sent.*/
         u_int8_t payload[5] = {requestCode,b0,b1,b2,b3};
-        //char payloadC[3] = {'h','k','1'};
-        //float payloadF[2] = {76.76,50.49};
         
         /*Send the payload through the buffer*/
         dataCharacteristic.writeValue((byte*) payload, sizeof(payload));
@@ -106,11 +103,6 @@ void bleController(){
         
         char* receivedData = ( char* )dataCharacteristic.value();
         Serial.println(receivedData);
-        //Serial.print("   ");
-        //Serial.print(sizeof(receivedData));
-        //Serial.print("   ");
-        //Serial.print(receivedData[3]);
-        //Serial.println("");
 
         if (receivedData[0] == 'T' && receivedData[1] == '0'){
           Serial.println("Period: Set to 1s");
@@ -130,20 +122,7 @@ void bleController(){
         } 
 
       }
-      // int floatValue = 16;
-      // dataCharacteristic.writeValue(( byte* ) &floatValue, sizeof( int ));
 
-      // char* receivedData = ( char* )dataCharacteristic.value();
-      // //Serial.println(receivedData);
-      // Serial.println(dataService);
-
-      // // if (receivedData[0] == 't' && receivedData[1] == 'e' && receivedData[2] == 'm' && receivedData[3] == 'p'){
-      //   float floatValue = readTemperature();
-      //   dataCharacteristic.writeValue(( byte* ) &floatValue, sizeof( float ));
-      // // }
-      
-      
-      
     }
   Serial.println("* Disconnected to central device!");
   }
