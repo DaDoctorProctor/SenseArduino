@@ -125,6 +125,10 @@ void bleController(){
         } 
 
       }
+
+      // Changes should be commited
+
+
       // int floatValue = 16;
       // dataCharacteristic.writeValue(( byte* ) &floatValue, sizeof( int ));
 
